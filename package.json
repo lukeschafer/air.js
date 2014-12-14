@@ -1,0 +1,11 @@
+{
+	"name": "air.js",
+	"description": "JS Publish/Subscribe and Request/Response",
+	"version": "0.1.0",
+	"author": "Luke Schafer <luke.schafer@gmail.com>",
+	"scripts": { "test": "grunt test" },
+	"devDependencies": {
+		"grunt": "~0.4.5",
+		"grunt-contrib-jasmine": "~0.8.1"
+	}
+}
