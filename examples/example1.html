@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<script src="../air.js"></script>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+			var my = air.hub('my');
+			air.subscribe('test', function(v){
+				console.log('air:test', v)
+			})
+			air.hub('my').subscribe('test', function(v){
+				console.log('air:my:test', v)
+			})
+			air.subscribe('test2', function(v){
+				console.log('air:my:test2', v)
+			})
+			air.subscribe('all', function(v){
+				console.log('air:my:all', v)
+			})
+
+			my.bridgeSubscription(air.hub('global'), 'test' , 'test')
+			my.bridgeSubscription(air.hub('global'), 'test' , 'test2')
+			my.publish('test', 789)
+
+			air.publish('my', 'test', 456)
+			air.publish('test', 123)
+			my.publish('test', 987)
+
+			air.replyTo('ask', function(d, reply) { reply( "Q: " + d + ", A: Dunno")})
+			air.request('ask', 'The answer?', function(resp){
+				console.log(resp)
+			})
+				
+			my.request('ask', 'Bridged answer?', function(resp){
+				console.log(resp)
+			})
+			
+
+			my.bridgeSubscription(air, 'all', 'all')
+			my.bridgeSubscription(air, {
+				mytest: {destination: "ask", map: function(d) {return "Really? (" + d + ")"}}
+			})
+
+			my.request('mytest', 'Bridged answer?', function(resp){
+				console.log(resp)
+			})
+		</script>
+	</body>
+</html>
