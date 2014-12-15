@@ -1,4 +1,4 @@
 air.js
 ======
 
-JS Publish/Subscribe and Request/Response
+Broadcast interactions with pub-sub and requet-response
