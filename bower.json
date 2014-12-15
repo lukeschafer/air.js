@@ -1,0 +1,34 @@
+{
+  "name": "air.js",
+  "main": "air.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/lukeschafer/air.js",
+  "authors": [
+    "lukeschafer <luke.schafer@gmail.com>"
+  ],
+  "description": "Broadcast interactions with pub-sub and requet-response",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "publish",
+    "subscribe",
+    "request",
+    "response",
+    "javascript",
+    "event",
+    "eventing",
+    "decoupled",
+    "elemental"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
