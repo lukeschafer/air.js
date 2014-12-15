@@ -3,9 +3,9 @@
 	"description": "JS Publish/Subscribe and Request/Response",
 	"version": "0.1.0",
 	"author": "Luke Schafer <luke.schafer@gmail.com>",
-	"scripts": { "test": "grunt test" },
+	"scripts": { "test": "grunt jasmine" },
 	"devDependencies": {
-		"grunt": "~0.4.5",
-		"grunt-contrib-jasmine": "~0.8.1"
+		"grunt": "~0.4.1",
+		"grunt-contrib-jasmine": "~0.4.0"
 	}
 }
