@@ -19,7 +19,7 @@
 				console.log('air:my:all', v)
 			})
 
-			my.bridgeSubscription(air.hub('global'), 'test' , 'test')
+			my.bridgeSubscription(air.hub('global'), 'test' , function(f) { return f + 22; })
 			my.bridgeSubscription(air.hub('global'), 'test' , 'test2')
 			my.publish('test', 789)
 

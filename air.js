@@ -48,6 +48,7 @@
 
 	Air.prototype.bridgeSubscription = function(toHub, fromChannel, toChannel, map) {
 		var me = this;
+		console.log(typeof toChannel)
 		if (typeof toChannel == 'function') {
 			map = toChannel;
 			toChannel = null;
