@@ -1,12 +1,16 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     jasmine : {
-      // Your project's source files
-      src : 'air.js',
-      // Your Jasmine spec files
-      specs : 'specs/**/*spec.js',
-      // Your spec helper files
-      helpers : 'specs/helpers/*.js'
+      air: {
+        // Your project's source files
+        src : 'air.js',
+        options: {
+          // Your Jasmine spec files
+          specs : 'specs/*.js',
+          // Your spec helper files
+          helpers : 'specs/helpers/*.js'
+        }
+      }
     }
   });
 

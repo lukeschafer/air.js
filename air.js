@@ -19,8 +19,11 @@
 	* @returns {Air} The new Air
 	*/
 	Air.prototype.hub = function(hub) {
-		if (!hubs[hub]) hubs[hub] = new Air(hub)
-		return hubs[hub];
+		if (hubs[hub]) return hubs[hub];
+		
+		var newhub = new Air(hub);
+		hubs[newhub.name] = newhub
+		return newhub;
 	}
 	
 	/** 
@@ -90,14 +93,23 @@
 		}
 		//if no reply destination, assume it goes to the ether.
 		if (!replyTo) replyTo = function(){}
-		return send(this._requestResponse, requestType, true, data, replyTo);
+		return send(this	._requestResponse, requestType, true, data, replyTo);
 	}
 	
+	Air.prototype.reset = init;
+
 	//expose
-	var air = new Air('global');
-	hubs.global = air;
-	if (typeof module !== 'undefined' && module && typeof module.exports !== 'undefined') module.exports = air;
-	if (typeof window !== 'undefined') window.air = air;
+	function init() {
+		hubs = {};
+		var a = new Air('global');
+		hubs.global = a;
+		if (typeof module !== 'undefined' && module && typeof module.exports !== 'undefined') module.exports = a;
+		if (typeof window !== 'undefined') window.air = a;
+		air = a;
+		autoHubName = 0;
+	}
+	var air = null;
+	init();
 	
 	//helpers
 	function any(lst, predicate) {
