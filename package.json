@@ -1,6 +1,6 @@
 {
 	"name": "air.js",
-	"description": "Broadcast interactions with pub-sub and requet-response",
+	"description": "Broadcast interactions with pub-sub and requet-reply",
 	"version": "0.1.0",
 	"author": "Luke Schafer <luke.schafer@gmail.com>",
 	"scripts": { "test": "grunt jasmine" },

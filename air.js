@@ -76,11 +76,11 @@
 	* Request some data.
 	* @param {string} requestType - Request type
 	* @param {*} [data] - Data required for request. If not set, replyTo is the second argument
-	* @param {(string|Function)} [replyTo] - Reply destination, can be either a channel (to publish to) or a callback. If not set, responses are ignored
+	* @param {(string|Function)} [replyTo] - Reply destination, can be either a channel (to publish to) or a callback. If not set, replies are ignored
 	*/
 	Air.prototype.request = function(requestType, data, replyTo) {
 		var me = this;
-		//if only 2 args, assume no input data
+			//if only 2 args, assume no input data
 		if (!replyTo) {
 			replyTo = data;
 			data = null;

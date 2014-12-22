@@ -31,4 +31,27 @@ describe("Hub specs", function() {
 		});
 		hub.publish('foo', 3);	
 	});
+
+	it('should reply to a request on hub', function(done) {
+		var hub = air.hub('baz');
+		hub.replyTo('foo', function(bar, baz) {
+			baz(bar+1);
+		});
+		hub.request('foo', 3, function(ret) {
+			expect(ret).toEqual(4)
+			done();
+		});	
+	});
+
+	it('should reply via channel to a request on hub', function(done) {
+		var hub = air.hub('baz');
+		hub.replyTo('foo', function(bar, baz) {
+			baz(bar+1);
+		});
+		hub.subscribe('resp', function(bar) {
+			expect(bar).toEqual(4)
+			done();
+		});
+		hub.request('foo', 3, 'resp');	
+	});
 });

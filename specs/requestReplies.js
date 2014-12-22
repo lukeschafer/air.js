@@ -1,8 +1,8 @@
-describe("Request/Response specs", function() {
+describe("Request/Reply specs", function() {
 	beforeEach(function() {
 		air.reset();
 	});
-	it('should return response to callback', function(done) {
+	it('should return reply to callback', function(done) {
 		air.replyTo('foo', function(bar, cb) {
 			cb(7);
 		});
@@ -12,7 +12,7 @@ describe("Request/Response specs", function() {
 		});	
 	});
 
-	it('should return response to subscription', function(done) {
+	it('should return reply to subscription', function(done) {
 		air.replyTo('foo', function(bar, cb) {
 			cb(7);
 		});
@@ -23,7 +23,7 @@ describe("Request/Response specs", function() {
 		air.request('foo', 'bar');	
 	});
 
-	it('should get response from first responder only', function(done) {
+	it('should get reply from first responder only', function(done) {
 		var secondWasCalled = false;
 		air.replyTo('foo', function(bar, cb) {
 			cb(7);
