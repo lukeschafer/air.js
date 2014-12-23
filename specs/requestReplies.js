@@ -12,6 +12,16 @@ describe("Request/Reply specs", function() {
 		});	
 	});
 
+	it('should return reply to request with data', function(done) {
+		air.replyTo('foo', function(bar, cb) {
+			cb(bar+1);
+		});
+		air.request('foo', 5, function(d) {
+			expect(d).toBe(6);
+			done();
+		});	
+	});
+
 	it('should return reply to subscription', function(done) {
 		air.replyTo('foo', function(bar, cb) {
 			cb(7);

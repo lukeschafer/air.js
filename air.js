@@ -59,11 +59,16 @@
 		});
 	}
 
-	Air.prototype.bridgeRequest = function(toHub, fromChannel, toChannel, map) {
+	Air.prototype.bridgeRequest = function(toHub, fromRequestType, toRequestType, map) {
 		var me = this;
+		console.log(typeof toRequestType)
+		if (typeof toRequestType == 'function') {
+			map = toRequestType;
+			toRequestType = null;
+		}
 		if (!map) map = function(d) { return d; };
-		me.replyTo(this, fromChannel, function(data, reply) {
-			me.publish(toHub, toChannel, map(data));
+		me.replyTo(fromRequestType, function(data, reply) {
+			toHub.request(toRequestType || fromRequestType, map(data), reply);
 		});
 	}
 
